@@ -47,7 +47,7 @@ function createMoles() {
     window.setTimeout(createMoles, randomTime);
   }
 }
-
+ㅈ;
 function createRandomMoles(randomMoles) {
   for (var i = 0; i < randomMoles; i++) {
     const houses = gameTable.querySelectorAll('.house');
@@ -120,6 +120,7 @@ function startgameTimer() {
   timer = setInterval(() => {
     if (remainingTimeSec <= 0) {
       clearInterval(timer);
+      gameEnd();
       return;
     }
     updateTimerText(--remainingTimeSec);
