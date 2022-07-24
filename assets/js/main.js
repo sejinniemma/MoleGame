@@ -6,8 +6,8 @@ const gameTable = document.getElementById('gameTable');
 const gameTimer = document.querySelector('.gameTimer');
 const gameDuration = 60;
 let timer;
-var score = 0;
-var gameStatus = false;
+let score = 0;
+let gameStatus = false;
 
 // start game!!
 start.addEventListener('click', startGame);
@@ -47,7 +47,7 @@ function createMoles() {
     window.setTimeout(createMoles, randomTime);
   }
 }
-ㅈ;
+
 function createRandomMoles(randomMoles) {
   for (var i = 0; i < randomMoles; i++) {
     const houses = gameTable.querySelectorAll('.house');
@@ -120,7 +120,7 @@ function startgameTimer() {
   timer = setInterval(() => {
     if (remainingTimeSec <= 0) {
       clearInterval(timer);
-      gameEnd();
+      showGameScore();
       return;
     }
     updateTimerText(--remainingTimeSec);
@@ -133,8 +133,7 @@ function updateTimerText(time) {
   gameTimer.innerHTML = `${minutes} : ${seconds}`;
 }
 
-// when refresh
-window.onbeforeunload = function (event) {
-  event.preventDefalt();
-  return false;
-};
+function showGameScore() {
+  gameStatus = false;
+  alert(`Your score is : ${score}`);
+}
