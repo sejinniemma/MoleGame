@@ -57,7 +57,7 @@
 
 ## 2. startGame(), changeAllMolesToHouse() : 게임시작시 처음에는 항상 두더지집만 생성되도록 하기
 
-<img width="804" alt="스크린샷 2022-07-25 오전 8 34 54" src="[https://user-images.githubusercontent.com/80943394/180670421-9c349554-fe89-4b22-8fbc-340fcae74464.png](https://user-images.githubusercontent.com/80943394/180670421-9c349554-fe89-4b22-8fbc-340fcae74464.png)">
+<img width="804" alt="스크린샷 2022-07-25 오전 8 34 54" src="https://user-images.githubusercontent.com/80943394/180897390-4a02e383-5d14-4ab4-8344-14a4e4d033be.png">
 
 - 시작버튼이 클릭되어 게임이 시작되면 게임의 상태를 알리는 gameStatus는 true, 두더지가 랜덤하게 생성되기 시작하고 , 타이머가 시작됩니다.
 - 게임이 시작할때는 항상 모든 두더지집에 두더지가 없이 두더지집으로 리셋시키기 위해 changeAllMolesToHouse()함수를 만들었습니다.
