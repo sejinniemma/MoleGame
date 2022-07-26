@@ -1,13 +1,50 @@
 'use strict';
-
+window.onload = loadPage;
 const moles = document.querySelectorAll('.mole');
 const start = document.getElementById('start');
 const gameTable = document.getElementById('gameTable');
 const gameTimer = document.querySelector('.gameTimer');
 const gameDuration = 60;
-let timer;
+let remainingTimeSec = gameDuration;
 let score = 0;
+let timer;
 let gameStatus = false;
+
+function loadPage() {
+  if (localStorage.getItem('moleGame') !== null) {
+    startGame();
+    loadLocalStorage();
+  }
+}
+
+function loadLocalStorage() {
+  const GameS = JSON.parse(localStorage.getItem('moleGame'));
+  if (GameS.status) {
+    // update GameS info
+    gameTable.innerHTML = '';
+    remainingTimeSec = GameS.time;
+    score = GameS.score;
+    gameStatus = GameS.status;
+
+    // show score and timer
+    document.getElementById('score').innerHTML = 'Score: ' + score;
+    updateTimerText(remainingTimeSec);
+
+    for (let itemCol in GameS.gameTable) {
+      let col = document.createElement('div');
+      for (let div in GameS.gameTable[itemCol]) {
+        let divs = document.createElement('div');
+
+        divs.classList.add(GameS.gameTable[itemCol][div]);
+        if (GameS.gameTable[itemCol][div] === 'house') {
+          divs.innerText = 'X';
+        }
+        col.appendChild(divs);
+      }
+      gameTable.appendChild(col);
+    }
+  }
+}
 
 // start game!!
 start.addEventListener('click', startGame);
@@ -26,19 +63,17 @@ function changeAllMolesToHouse() {
   }
 }
 
-// make moles ranmdomly
+// make moles randomly
 function createMoles() {
+  if (!gameStatus) {
+    return true;
+  }
   let randomTime = getRandom(1000, 3000);
   let randomMoles = getRandom(1, 5);
 
-  console.log('Mole ' + randomMoles);
-  console.log('House ' + gameTable.querySelectorAll('.house').length);
-
-  // if randomMoles count is bigger than house count, game will be finished and add moles to the rest of the house after game is over
-  if (randomMoles > gameTable.querySelectorAll('.house').length) {
-    randomMoles = gameTable.querySelectorAll('.house').length;
-    createRandomMoles(randomMoles);
+  if (randomMoles >= gameTable.querySelectorAll('.house').length) {
     gameEnd();
+    createRandomMoles(randomMoles);
     return false;
   }
 
@@ -49,6 +84,7 @@ function createMoles() {
 }
 
 function createRandomMoles(randomMoles) {
+  console.log(randomMoles);
   for (var i = 0; i < randomMoles; i++) {
     const houses = gameTable.querySelectorAll('.house');
     const randomHouse = getRandom(0, houses.length - 1);
@@ -67,6 +103,7 @@ function getRandom(min, max) {
 function gameEnd() {
   gameStatus = false;
   alert('YOU LOST');
+  localStorage.removeItem('moleGame');
 }
 
 // when click mole, mole is removed
@@ -115,10 +152,9 @@ function printGameTable() {
 
 // Timer
 function startgameTimer() {
-  let remainingTimeSec = gameDuration;
   updateTimerText(remainingTimeSec);
   timer = setInterval(() => {
-    if (remainingTimeSec <= 0) {
+    if (remainingTimeSec <= 0 || !gameStatus) {
       clearInterval(timer);
       showGameScore();
       return;
@@ -134,6 +170,33 @@ function updateTimerText(time) {
 }
 
 function showGameScore() {
-  gameStatus = false;
   alert(`Your score is : ${score}`);
 }
+
+// Before unload, get the all div's class info and save them in localStorage with JSON
+window.onbeforeunload = function () {
+  if (gameStatus) {
+    const gameTable = Array.from(
+      document.getElementById('gameTable').childNodes
+    );
+    const divsGame = [];
+
+    for (let num in gameTable) {
+      const divClassName = [];
+      const sons = Array.from(gameTable[num].childNodes);
+      for (let value in sons) {
+        divClassName.push(sons[value].className);
+      }
+      divsGame.push(divClassName);
+    }
+
+    let Game = {
+      score: score,
+      time: remainingTimeSec,
+      gameTable: divsGame,
+      status: gameStatus,
+    };
+
+    localStorage.setItem('moleGame', JSON.stringify(Game));
+  }
+};
