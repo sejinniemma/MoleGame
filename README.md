@@ -12,7 +12,7 @@
 ---
 
    ## 1. printGameTable() : 게임 시작전 보여지는 두더지하우스
-
+<img width="976" alt="스크린샷 2022-07-25 오전 7 22 10" src="https://user-images.githubusercontent.com/80943394/180897123-37e6cf36-f812-4f03-a16f-a26d61258e60.png">
 
    - 24개의 두더지집을 두개의 for문을 이용해서 동적으로 생성했습니다.
    - 첫번째 for문에서는 열 row(div)을 생성하고, 두번째 for문에서는 열 row(div)안에 생성되는 두더지집(div)을 만들었습니다.
@@ -21,7 +21,7 @@
 
 ---
 
-## 2. createMoles() : 두더지 생성
+  ## 2. createMoles() : 두더지 생성
 
 <img width="1061" alt="스크린샷 2022-07-25 오전 7 56 12" src="[https://user-images.githubusercontent.com/80943394/180669185-8061f6d2-0fb7-4720-9939-3b87aa88a2f1.png](https://user-images.githubusercontent.com/80943394/180669185-8061f6d2-0fb7-4720-9939-3b87aa88a2f1.png)">
 
