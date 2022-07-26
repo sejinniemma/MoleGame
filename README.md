@@ -46,7 +46,7 @@
 
 ## 2. hitMoles() : 두더지 죽이기
 
-   <img width="804" alt="스크린샷 2022-07-25 오전 8 20 42" src="[https://user-images.githubusercontent.com/80943394/180669926-b8be97d9-6da1-4335-81a5-2a3501168170.png](https://user-images.githubusercontent.com/80943394/180669926-b8be97d9-6da1-4335-81a5-2a3501168170.png)">
+<img width="804" alt="스크린샷 2022-07-25 오전 8 20 42" src="https://user-images.githubusercontent.com/80943394/180897298-ede35d6c-e2cd-4869-a43c-4747b0a3be8e.png">
 
 - event delegation을 이용해 두더지마다 이벤트를 등록하지 않고 부모노드인 gameTable에만 이벤트를 등록하여 모든 자식노드가 클릭이 되었을 때 gameTable이 이벤트를 들을 수있게 하였습니다.(gameTable내에서 클릭시, 노드의 클래스이름이 'mole'인 경우 두더지가 지워지도록 하였음)
 - 두더지가 클릭이되면 class(mole -> house)를 두더지집으로 대체하고 innerText = 'X'로 표기 하여 두더지가 사라지는 것처럼 구현하였습니다.
