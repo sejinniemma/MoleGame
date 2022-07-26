@@ -64,8 +64,9 @@
 
 ## 3. startGameTimer() : 타이머 기능구현
 
-<img width="692" alt="스크린샷 2022-07-25 오전 8 41 56" src="[https://user-images.githubusercontent.com/80943394/180670697-73521d1f-6b47-402b-af50-d1be462c02d3.png](https://user-images.githubusercontent.com/80943394/180670697-73521d1f-6b47-402b-af50-d1be462c02d3.png)">
-<img width="692" alt="스크린샷 2022-07-25 오전 8 42 10" src="[https://user-images.githubusercontent.com/80943394/180670690-f44dd189-dbd6-43e4-8bc3-834d0bb6ef0c.png](https://user-images.githubusercontent.com/80943394/180670690-f44dd189-dbd6-43e4-8bc3-834d0bb6ef0c.png)">
+<img width="692" alt="스크린샷 2022-07-25 오전 8 41 56" src="https://user-images.githubusercontent.com/80943394/180897465-56b21025-5df0-447d-a015-e09872d61acf.png">
+<img width="990" alt="스크린샷 2022-07-24 오후 3 27 05" src="https://user-images.githubusercontent.com/80943394/180897457-907d3179-6e2d-45d5-8993-afef43794b32.png">
+
 
 - 정해진 시간은 상수로 만들고 ( const gameDuration = 60 ), 시간이 지나면서 남아 있는 시간은 함수 내 지역변수로 (let remainingTimeSec = gameDuration )만들어 실제 게임시간을 할당하였습니다.
 - 브라우저 API인 setTimeOut을 이용해 타이머를 구현하였고 시간이 0이되면 타이머가 멈추도록 clearInterval(timer) API를 사용하였습니다.
