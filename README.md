@@ -23,7 +23,7 @@
 
   ## 2. createMoles() : 두더지 생성
 
-<img width="1061" alt="스크린샷 2022-07-25 오전 7 56 12" src="[https://user-images.githubusercontent.com/80943394/180669185-8061f6d2-0fb7-4720-9939-3b87aa88a2f1.png](https://user-images.githubusercontent.com/80943394/180669185-8061f6d2-0fb7-4720-9939-3b87aa88a2f1.png)">
+<img width="1061" alt="스크린샷 2022-07-25 오전 7 56 12" src="https://user-images.githubusercontent.com/80943394/180897224-f95230ec-1eb2-4c65-b4fc-74332fa918ae.png">
 
 - getRandom()함수를 통해 randomTime(1~3초 안에서 랜덤하게추출),randomMoles(1 ~ 5개 안에서 랜덤하게 추출)를 생성하여 랜덤하게 만들어진 숫자를 할당하였습니다.
 - createRandomMoles(randomMoles) : 실제로 두더지가 만들어지는 함수에 randomMoles(두더지의 숫자가 랜덤하게 추출된값)을 파라미터로 전달하여 for문이 돌려지는 횟수를 지정했고,
